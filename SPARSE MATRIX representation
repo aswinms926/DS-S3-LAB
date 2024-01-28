@@ -1,8 +1,8 @@
 // SPARSE MATRIX
+
 #include <stdio.h>
 
-void
-main ()
+void main ()
 {
   int i, j, r, c, k = 1;
   printf ("Enter the row and column size : ");
