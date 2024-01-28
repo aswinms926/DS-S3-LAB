@@ -1,0 +1,53 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int i,n,c=0,small,j,temp;
+    c++;
+    printf("Enter the array size  : ");
+    scanf("%d",&n);
+    int a[n];
+        printf("Enter the array elements  : ");
+    for(i=0;i<n;i++)
+    {
+         scanf("%d",&a[i]);
+         c++;
+         c++;
+    }c++;
+    for(i=0;i<n-1;i++)
+    {
+        c++;
+        small=i;
+        for(j=i+1;j<n;j++)
+        {
+            c++;
+            c++;
+            if(a[small]>a[j])
+            {
+                c++;
+            small=j;
+            }
+        }c++;
+        if(i!=small)
+        {
+            c++;
+           temp=a[i];
+           a[i]=a[small];
+           a[small]=temp;
+        }
+    }c++;
+    printf("sorted array is ");
+    for(i=0;i<n;i++)
+    {
+         printf("%d ",a[i]);
+         c++;
+         c++;
+    }c++;
+    
+    
+     
+    printf("\ntime complexity is %d",c);
+    printf("\nspace complexity is %d",36+4*n);
+    return 0;
+}
