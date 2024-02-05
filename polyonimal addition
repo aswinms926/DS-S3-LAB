@@ -1,0 +1,44 @@
+#include<stdio.h>
+voidmain ()
+{
+  struct poly
+  {
+	int coeff;
+	int expo;
+  } p[10];
+  int n;
+  printf ("Enter the number of terms :");
+  scanf ("%d", &n);
+  printf ("Enter the coefficiants ans exponents of each term  : \n");
+  for (int i = 0; i < n; i++)
+	{
+	  printf ("Enter the coeff :");
+	  scanf ("%d", &p[i].coeff);
+	  printf ("Enter the expo :");
+	  scanf ("%d", &p[i].expo);
+	}
+  printf ("p(x)=");
+  for (int i = 0; i < n - 1; i++)
+	{
+	  printf ("(%dx^%d)+", p[i].coeff, p[i].expo);
+	}
+  for (int i = n - 1; i < n; i++)
+	{
+	  printf ("(%dx^%d)", p[i].coeff, p[i].expo);
+	}
+}
+/***********************************************************************************
+OUTPUT
+
+Enter the number of terms :4
+Enter the coefficiants ans exponents of each term  : 
+Enter the coeff :5
+Enter the expo :8
+Enter the coeff :6
+Enter the expo :7
+Enter the coeff :7
+Enter the expo :8
+Enter the coeff :8
+Enter the expo :9
+p(x)=(5x^8)+(6x^7)+(7x^8)+(8x^9)
+****************************************************************************************/
