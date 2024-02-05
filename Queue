@@ -1,0 +1,159 @@
+#include<stdio.h>
+int queue[100], f = 0, r = -1, n, option;
+void Enqueue ();
+void Dequeue ();
+void Peek ();
+void Display ();
+void main ()
+{
+  printf ("ENter the size of the queue : ");
+  scanf ("%d", &n);
+  printf ("1)Enqueue 2)Dequeue 3) Peek 4)Display 5)Exit ");
+  do
+	{
+	  printf ("\nEnter your choise : \n");
+	  scanf ("%d", &option);
+	  switch (option)
+		{
+		case 1:
+		  Enqueue ();
+		  break;
+		case 2:
+		  Dequeue ();
+		  break;
+		case 3:
+		  Peek ();
+		  break;
+		case 4:
+		  Display ();
+		  break;
+		case 5:
+		  break;
+		default:
+		  break;
+		}
+	}
+  while (option != 5);
+
+}
+
+void Enqueue ()
+{
+  if (r >= n - 1)
+	{
+	  printf ("overflow\n");
+	}
+  else
+	{
+	  r = r + 1;
+	  printf ("Ente the no:");
+	  scanf ("%d", &queue[r]);
+	}
+}
+
+void Dequeue ()
+{
+  if (f == r)
+	{
+	  printf ("deleted element is %d", queue[f]);
+	  f = 0;
+	  r = -1;
+	}
+  else if (f > r)
+	{
+	  printf ("underflow\n");
+	}
+  else
+	{
+
+	  printf ("deleted element is %d", queue[f]);
+	  f = f + 1;
+
+	}
+}
+
+void Peek ()
+{
+  if (f > r)
+	{
+	  printf ("epmty\n");
+	}
+  else
+	printf ("formost element is %d", queue[f]);
+
+
+}
+
+void Display ()
+{
+  if (f > r)
+	{
+	  printf ("epmty\n");
+	}
+  else
+	for (int i = f; i <= r; i++)
+	  {
+		printf ("%d", queue[i]);
+	  }
+}
+/************************************************************************************
+OUTPUT
+
+ENter the size of the queue : 3
+1)Enqueue 2)Dequeue 3) Peek 4)Display 5)Exit 
+Enter your choise : 
+1
+Ente the no:2
+
+Enter your choise : 
+1
+Ente the no:3
+
+Enter your choise : 
+1
+Ente the no:4
+
+Enter your choise : 
+1
+overflow
+
+Enter your choise : 
+2
+deleted element is 2
+Enter your choise : 
+2
+deleted element is 3
+Enter your choise : 
+2
+deleted element is 4
+Enter your choise : 
+2
+underflow
+
+Enter your choise : 
+1
+Ente the no:5
+
+Enter your choise : 
+1
+Ente the no:6
+
+Enter your choise : 
+2
+deleted element is 5
+Enter your choise : 
+1
+Ente the no:7
+
+Enter your choise : 
+3
+formost element is 6
+Enter your choise : 
+4
+67
+Enter your choise : 
+4
+67
+Enter your choise : 
+5
+******************************************************************/
