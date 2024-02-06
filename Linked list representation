@@ -1,0 +1,106 @@
+
+#include <stdio.h>
+#include<stdlib.h>
+void Begin_insert ();
+void last_insert ();
+void insert_random();
+struct node 
+{
+    int data;
+    struct node *link;
+}*head;
+void main ()
+{
+  int ch;
+  printf ("1)Begin_insert\n2)last_insert\n3)insert_random");
+  do
+	{
+	  printf ("ENter your choice : ");
+	  scanf ("%d", &ch);
+	  switch (ch)
+        {
+		case 1:
+                 Begin_insert();
+                 break;
+        case 2 :
+                last_insert ();
+                break;
+        case 3 :
+         insert_random();
+         break;
+                case 4 :
+                break;
+                default :
+                break;
+		}
+	}while(ch!=4);
+  }
+  void Begin_insert ()
+  {
+      int item;
+      struct node *ptr=(struct node*)malloc(sizeof(struct node));
+      printf("ENter the item to insert :");
+      scanf("%d",&item);
+      ptr->data=item;
+      ptr->link=head;
+      head=ptr;
+      
+  }
+void last_insert ()
+{
+    int item;
+      struct node *ptr=(struct node*)malloc(sizeof(struct node));
+      struct node *temp;
+      printf("ENter the item to insert :");
+      scanf("%d",&item);
+      ptr->data=item;
+     ptr->link=NULL;
+      if(head==NULL)
+      {
+          
+          head=ptr;
+      }
+      else
+      {
+          temp=head;
+          while(temp->link!=NULL)
+          temp=temp->link;
+          temp->link=ptr;
+          ptr->link=NULL;
+      }
+}
+void insert_random()
+{
+    int item,pos;
+    if(head==NULL)
+    {
+        Begin_insert ();
+    }
+    else
+    {
+        struct node *ptr=(struct node*)malloc(sizeof(struct node));
+        struct node *temp;
+        printf("ENter the position u want to enter the element : ");
+        scanf("%d",&pos);
+        printf("ENter the otem : ");
+        scanf("%d",&item);
+        ptr->data=item;
+            temp=head;
+            while(temp->link->data!=pos && temp->link!=NULL)
+            {
+                 
+                temp=temp->link;
+                
+            }
+            if(temp->link!=NULL)
+            {
+                printf("Search fails");
+            }
+            else{
+            struct node *newNode = (struct node *)malloc(sizeof(struct node));
+            newNode->data = item;
+            newNode->link = temp->link;
+            temp->link = newNode;
+        }}
+    
+}
